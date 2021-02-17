@@ -59,7 +59,7 @@ public class UserRegistration
          else
 			{
             System.out.println("Not valid first name should starts with Cap and has minimum 3 character ");
-          }
+         }
    }
 
 	//Cheking the Validation of Email
@@ -114,6 +114,33 @@ public class UserRegistration
 		}
 	}
 
+	//Validating the password with minimum 8 characters
+	public static void passwordValidationRule1()
+	{
+		System.out.println("Enter your password : ");
+		String name = Obj.nextLine();
+
+		// Password characters should be 8
+		String regex = "[a-z A-Z 0-9]{8,}";
+
+		// Creating a pattern object
+		Pattern pattern = Pattern.compile(regex);
+
+		// Creating a Matcher object
+		Matcher matcher = pattern.matcher(name);
+
+		//Validation of number of Password characters
+		boolean result = matcher.matches();
+		if (result == true)
+		{
+			System.out.println("password is valid");
+		}
+		else
+		{
+			System.out.println("paasword should be 8 character ");
+		}
+	}
+
    public static void main(String[] args)
 	{
 		UserRegistration User = new UserRegistration();
@@ -121,6 +148,7 @@ public class UserRegistration
 		User.lastNameValidation();
 		User.emailValidation();
  		User.mobileValidation();
+		User.passwordValidationRule1();
 	}
 }
 
