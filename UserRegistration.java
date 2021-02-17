@@ -120,8 +120,8 @@ public class UserRegistration
 		System.out.println("Enter your password : ");
 		String name = Obj.nextLine();
 
-		// Password characters should be 8
-		String regex = "(?=.*?[A-Z])[a-z A-Z 0-9]{8,}";
+		// Password characters should be 8 one Uppercase and atleast one number
+		String regex = "(?=.*?[A-Z])(?=.*?[0-9])[a-z A-Z 0-9]{8,}";
 
 		// Creating a pattern object
 		Pattern pattern = Pattern.compile(regex);
@@ -137,7 +137,7 @@ public class UserRegistration
 		}
 		else
 		{
-			System.out.println("paasword should be 8 characters and one Upper Case letter ");
+			System.out.println("paasword should be 8 characters and one Upper Case letter and one number ");
 		}
 	}
 
