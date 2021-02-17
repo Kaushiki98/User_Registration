@@ -4,9 +4,11 @@ import java.util.regex.*;
 
 public class UserRegistration{
 
+	static Scanner Obj = new Scanner(System.in);
+
 	// Checking the validation of First name
 	public static void firstNameValidation(){
-		Scanner Obj = new Scanner(System.in);
+
       System.out.println("Enter your First name: ");
       String name = Obj.nextLine();
 
@@ -32,7 +34,7 @@ public class UserRegistration{
 
 	// Checking the validation of last name
 	 public static void lastNameValidation(){
-      Scanner Obj = new Scanner(System.in);
+
       System.out.println("Enter your Last name: ");
       String name = Obj.nextLine();
 
@@ -55,12 +57,37 @@ public class UserRegistration{
             System.out.println("Not valid first name should starts with Cap and has minimum 3 character ");
           }
    }
+
+	//Cheking the Validation of Email
+	public static void emailValidation() {
+
+		System.out.println("Enter your email id: ");
+		String name = Obj.nextLine();
+
+		String regex = "[a-z]+[.]+[a-z]+[@]+[a-z]{1,5}+[.]+[a-z]{1,3}$";
+
+		// Creating a pattern object
+		Pattern pattern = Pattern.compile(regex);
+
+		// Creating a Matcher object
+		Matcher matcher = pattern.matcher(name);
+
+		// Verifying whether given phone number is valid
+		boolean result = matcher.matches();
+		if (result == true) {
+			System.out.println(" Email is valid");
+		} else {
+			System.out.println("Not valid");
+			System.out.println("Email id should be in Eg,: abc.def123@gmail.com ");
+		}
+	}
+
    public static void main(String[] args){
 
-		UserRegistration firstUser = new UserRegistration();
-      firstUser.firstNameValidation();
-		firstUser.lastNameValidation();
-
+		UserRegistration User = new UserRegistration();
+      User.firstNameValidation();
+		User.lastNameValidation();
+		User.emailValidation();
  	}
 }
 
