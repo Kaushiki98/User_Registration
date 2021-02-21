@@ -8,7 +8,7 @@ public class UserRegistration
 
 	// Checking the validation of First name
 	public static void firstNameValidation()
-{
+	{
       System.out.println("Enter your First name: ");
       String name = Obj.nextLine();
 
@@ -115,13 +115,13 @@ public class UserRegistration
 	}
 
 	//Validating the password with minimum 8 characters
-	public static void passwordValidationRule1()
+	public static void passwordValidationRule()
 	{
 		System.out.println("Enter your password : ");
 		String name = Obj.nextLine();
 
 		// Password characters should be 8 one Uppercase and atleast one number
-		String regex = "(?=.*?[A-Z])(?=.*?[0-9])[a-z A-Z 0-9]{8,}";
+		String regex = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[@#$%^&-+=()]).{8,}";
 
 		// Creating a pattern object
 		Pattern pattern = Pattern.compile(regex);
@@ -137,7 +137,7 @@ public class UserRegistration
 		}
 		else
 		{
-			System.out.println("paasword should be 8 characters and one Upper Case letter and one number ");
+			System.out.println("password should be ex: Abcdefgh$987 ");
 		}
 	}
 
@@ -148,8 +148,8 @@ public class UserRegistration
       User.firstNameValidation();
 		User.lastNameValidation();
 		User.emailValidation();
- 		User.mobileValidation();
-		User.passwordValidationRule1();
+		User.mobileValidation();
+		User.passwordValidationRule();
 	}
 }
 
